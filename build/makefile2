@@ -1,0 +1,18 @@
+CC = g++
+CXXFLAGS = -g -Wall -std=c++11
+O_FILES = main.o 
+
+INCLUDES = -I../include
+
+# BUILD RULES
+all: $(O_FILES)
+	$(CC) $(CXXFLAGS) -o main $(O_FILES) #$(LIBS)
+
+main.o: ../src/main.cpp
+	$(CC) $(CXXFLAGS) -c ../src/main.cpp -o main.o $(INCLUDES)
+
+
+
+
+clean:
+	-@if rm *.o main 2>/dev/null || true; then echo "Main Removed"; else echo "No Main"; fi
